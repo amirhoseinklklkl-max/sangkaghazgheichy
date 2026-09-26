@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.ancientpersia.rps'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'ir.amir.sangkaghazgheichy'
+        minSdk 24
+        targetSdk 34
+        versionCode 6
+        versionName '1.5'
+
+        // ---------- خرید درون‌برنامه‌ای مایکت (روش رسمی مستندات) ----------
+        def marketApplicationId = "ir.mservices.market"
+        def marketBindAddress = "ir.mservices.market.InAppBillingService.BIND"
+        manifestPlaceholders = [
+                marketApplicationId: "${marketApplicationId}",
+                marketBindAddress  : "${marketBindAddress}",
+                marketPermission   : "${marketApplicationId}.BILLING"
+        ]
+        // کلید عمومی بازی از پنل توسعه‌دهندگان مایکت
+        buildConfigField "String", "IAB_PUBLIC_KEY",
+                '"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDM9UMwe//4O8RTER+sN/z5so19rRsDIvrR4JPI+jovkrlNs8O+IQ+A/dW917oRQV7nOErboPNTsSygaRFzR4lOFQQxs1+BaBQxuxfoaAj4hApPYktux616aBRR1E3TxPX//pfs1QtH8p/sYImdmiLMMj4MesgnfUFfSOU34SmgoQIDAQAB"'
+    }
+
+
+    signingConfigs {
+        release {
+            def ksPath = System.getenv("RELEASE_KEYSTORE_PATH")
+            if (ksPath != null) {
+                storeFile file(ksPath)
+                storePassword System.getenv("RELEASE_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("RELEASE_KEY_ALIAS")
+                keyPassword System.getenv("RELEASE_KEY_PASSWORD")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        viewBinding true
+        // تولید BuildConfig برای خواندن IAB_PUBLIC_KEY طبق مستندات مایکت
+        buildConfig true
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    // SDK تبلیغات ادیوری
+    implementation 'com.adivery:sdk:4.9.0'
+    // کتابخانه رسمی پرداخت درون‌برنامه‌ای مایکت (طبق مستندات myket.ir/kb/pages/java)
+    implementation 'com.github.myketstore:myket-billing-client:1.6'
+}
