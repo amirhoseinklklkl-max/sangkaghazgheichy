@@ -1,0 +1,12 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+
+# Release signing keystore - never commit this, keep it only locally and as a GitHub secret
+*.jks
+*.keystore
+release.keystore
