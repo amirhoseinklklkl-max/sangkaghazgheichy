@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SKG" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:fontFamily">@font/lalezar</item>
+        <item name="fontFamily">@font/lalezar</item>
+        <item name="android:windowBackground">@color/ink</item>
+        <item name="android:statusBarColor">@color/lapis_deep</item>
+        <item name="android:navigationBarColor">@color/lapis_deep</item>
+        <item name="colorAccent">@color/gold</item>
+        <item name="colorPrimary">@color/gold</item>
+        <item name="colorPrimaryDark">@color/lapis_deep</item>
+    </style>
+</resources>

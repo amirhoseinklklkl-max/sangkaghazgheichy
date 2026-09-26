@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Lapis / navy -->
+    <color name="lapis_deep">#101A3E</color>
+    <color name="lapis">#1B2A6B</color>
+    <color name="lapis_soft">#24357A</color>
+    <color name="lapis_card">#222F66</color>
+    <color name="lapis_stroke">#3E4E93</color>
+
+    <!-- Gold -->
+    <color name="gold">#F5C542</color>
+    <color name="gold_deep">#D9A521</color>
+    <color name="gold_dark">#8A6A10</color>
+    <color name="gold_pale">#FFE9A8</color>
+
+    <!-- Status -->
+    <color name="win_red">#C0392B</color>
+    <color name="draw_blue">#2E86C1</color>
+
+    <!-- Skin / sand -->
+    <color name="sand">#E9CFA6</color>
+    <color name="ink">#0C1226</color>
+    <color name="text_primary">#F8EFD8</color>
+    <color name="text_dim">#B9C0DC</color>
+    <color name="white">#FFFFFF</color>
+</resources>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="rtl"
+    android:scrollbars="none"
+    android:overScrollMode="never"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="22dp"
+        android:paddingBottom="22dp"
+        android:background="@drawable/panel_lapis">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/about_title"
+            android:textSize="30sp"
+            android:textColor="@color/gold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="14dp"
+            android:background="#55E8C766" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_intro_title"
+            android:textSize="20sp"
+            android:textColor="@color/gold_pale" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/about_intro_body"
+            android:textSize="16sp"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/about_history_title"
+            android:textSize="20sp"
+            android:textColor="@color/gold_pale" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/about_history_body"
+            android:textSize="16sp"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/about_channel_title"
+            android:textSize="20sp"
+            android:textColor="@color/gold_pale" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/about_channel_body"
+            android:textSize="16sp"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@color/text_primary" />
+
+        <!-- دکمه طلایی عضویت در کانال: بدون نمایش آدرس، با یک ضربه وارد کانال می‌شود -->
+        <LinearLayout
+            android:id="@+id/btnJoinChannel"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/btn_gold"
+            android:elevation="4dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_channel"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_join_channel"
+                android:textSize="20sp"
+                android:textColor="@color/lapis_deep" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_lapis"
+            android:text="@string/about_close"
+            android:textSize="18sp"
+            android:textColor="@color/gold_pale"
+            android:stateListAnimator="@null" />
+    </LinearLayout>
+</ScrollView>

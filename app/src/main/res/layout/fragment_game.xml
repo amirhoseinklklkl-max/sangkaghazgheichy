@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_persepolis"
+        android:importantForAccessibility="no" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/scrim" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- top bar: back arrow + round label -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:padding="7dp"
+                android:src="@drawable/ic_back"
+                android:background="@drawable/panel_lapis"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:id="@+id/tvRound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textSize="21sp"
+                android:textColor="@color/gold_pale" />
+        </LinearLayout>
+
+        <!-- 5 round diamonds -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <View
+                android:id="@+id/diamond1"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_margin="8dp"
+                android:rotation="45"
+                android:background="@drawable/diamond" />
+
+            <View
+                android:id="@+id/diamond2"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_margin="8dp"
+                android:rotation="45"
+                android:background="@drawable/diamond" />
+
+            <View
+                android:id="@+id/diamond3"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_margin="8dp"
+                android:rotation="45"
+                android:background="@drawable/diamond" />
+
+            <View
+                android:id="@+id/diamond4"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_margin="8dp"
+                android:rotation="45"
+                android:background="@drawable/diamond" />
+
+            <View
+                android:id="@+id/diamond5"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_margin="8dp"
+                android:rotation="45"
+                android:background="@drawable/diamond" />
+        </LinearLayout>
+
+        <!-- opponent zone -->
+        <TextView
+            android:id="@+id/tvOpponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/gold"
+            android:shadowColor="#AA000000"
+            android:shadowDy="3"
+            android:shadowRadius="8" />
+
+        <FrameLayout
+            android:id="@+id/aiHandFloat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/aiHand"
+                android:layout_width="168dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:importantForAccessibility="no" />
+        </FrameLayout>
+
+        <!-- flash result text -->
+        <TextView
+            android:id="@+id/tvFlash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="34sp"
+            android:visibility="gone"
+            android:shadowColor="#AA000000"
+            android:shadowDy="3"
+            android:shadowRadius="10" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- player hand -->
+        <FrameLayout
+            android:id="@+id/playerHandFloat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/playerHand"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:importantForAccessibility="no" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvChoose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/choose_hand"
+            android:textSize="17sp"
+            android:textColor="@color/text_dim" />
+
+        <!-- choices -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="20dp">
+
+            <LinearLayout
+                android:id="@+id/btnRock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="@drawable/choice_frame">
+
+                <ImageView
+                    android:layout_width="74dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/hand_default_fist"
+                    android:importantForAccessibility="no" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rock"
+                    android:textSize="16sp"
+                    android:textColor="@color/gold_pale" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnPaper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="@drawable/choice_frame">
+
+                <ImageView
+                    android:layout_width="74dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/hand_default_palm"
+                    android:importantForAccessibility="no" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/paper"
+                    android:textSize="16sp"
+                    android:textColor="@color/gold_pale" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnScissors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="@drawable/choice_frame">
+
+                <ImageView
+                    android:layout_width="74dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/hand_default_scissors"
+                    android:importantForAccessibility="no" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scissors"
+                    android:textSize="16sp"
+                    android:textColor="@color/gold_pale" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- final result overlay -->
+    <FrameLayout
+        android:id="@+id/finalOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B30C1226"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="26dp"
+            android:background="@drawable/panel_lapis">
+
+            <TextView
+                android:id="@+id/tvFinalTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="33sp"
+                android:textColor="@color/gold" />
+
+            <TextView
+                android:id="@+id/tvFinalStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="19sp"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/tvFinalCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textSize="29sp" />
+
+            <Button
+                android:id="@+id/btnAgain"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/btn_gold"
+                android:text="@string/play_again"
+                android:textSize="21sp"
+                android:textColor="@color/lapis_deep"
+                android:stateListAnimator="@null" />
+
+            <Button
+                android:id="@+id/btnFinalMenu"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/btn_lapis"
+                android:text="@string/back_to_menu"
+                android:textSize="19sp"
+                android:textColor="@color/gold_pale"
+                android:stateListAnimator="@null" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>
